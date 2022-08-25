@@ -1,8 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import {SearchIcon, ShoppingBagIcon, UserIcon } from '@heroicons/react/outline'
+
+
 
 function Header() {
+  const session = false
   return (
     <header className="sticky top-0 z-30 flex items-center w-full justify-between bg-[#e7ecee] p-4 " >
         <div className="flex items-center justify-center md:w-1/5 ">
@@ -17,6 +20,27 @@ function Header() {
           <a href="" className="headerLink" >Explore</a>
           <a href="" className="headerLink" >Support</a>
           <a href="" className="headerLink" >Business</a>
+        </div>
+        <div className=" flex items-center justify-center gap-x-4 md:w-1/5 " >
+          <SearchIcon className="headerIcon" />
+          <Link href='/checkout'>
+        <div className="relative" >
+          <span className="absolute -top-1 -right-1 w-4 h-4 bg-gradient-to-r from-pink-500 to-violet-500 rounded-full flex justify-center items-center z-30 text-[10px] text-white " >5</span>
+          <ShoppingBagIcon className="headerIcon" />
+        </div>
+        </Link>
+        {
+          session ? (
+              <Image
+              className="rounded-full"
+              src={'https://yt3.ggpht.com/ytc/AMLnZu_3CcNeRc4RziS1ai21e44w3JtWzxTMtEBwE-XJqA=s900-c-k-c0x00ffffff-no-rj'}
+              width={30}
+              height={30}
+              />
+          ): (
+<UserIcon className="headerIcon" />
+          )
+        }
         </div>
     </header>
   );
