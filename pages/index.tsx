@@ -23,12 +23,12 @@ const Home: NextPage = () => {
           </h1>
 
           <Tab.Group>
-            <Tab.List className='flex justify-center' >
+            <Tab.List className="flex justify-center">
               <Tab>Tab 1</Tab>
               <Tab>Tab 2</Tab>
               <Tab>Tab 3</Tab>
             </Tab.List>
-            <Tab.Panels className='mx-auto max-w-fit pt-10 pb-24 sm:px-4 ' >
+            <Tab.Panels className="mx-auto max-w-fit pt-10 pb-24 sm:px-4 ">
               <Tab.Panel>Content 1</Tab.Panel>
               <Tab.Panel>Content 2</Tab.Panel>
               <Tab.Panel>Content 3</Tab.Panel>
@@ -42,11 +42,10 @@ const Home: NextPage = () => {
 
 export default Home;
 
-
 // backend get data from server
-export const getServerSideProps : GetServerSideProps = async () =>{
+export const getServerSideProps: GetServerSideProps = async () => {
   // const categories = await fetchCategories()
-  return{
-    props:{}
-  }
-}
+  return {
+    props: {},
+  };
+};
