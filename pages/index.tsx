@@ -1,3 +1,4 @@
+import { Tab } from "@headlessui/react";
 import type { NextPage } from "next";
 import Head from "next/head";
 import Header from "../components/Header";
@@ -16,7 +17,24 @@ const Home: NextPage = () => {
         <Landing />
       </main>
       <section className="relative z-40 -mt-[100vh] min-h-screen bg-[#1b1b1b]">
-        <h1 className="text-center text-white text-4xl font-medium tracking-wide md:text-5xl" >New Promos</h1>
+        <div className=" space-y-10 py-14 ">
+          <h1 className="text-center text-white text-4xl font-medium tracking-wide md:text-5xl">
+            New Promos
+          </h1>
+
+          <Tab.Group>
+            <Tab.List className='flex justify-center' >
+              <Tab>Tab 1</Tab>
+              <Tab>Tab 2</Tab>
+              <Tab>Tab 3</Tab>
+            </Tab.List>
+            <Tab.Panels className='mx-auto max-w-fit pt-10 pb-24 sm:px-4 ' >
+              <Tab.Panel>Content 1</Tab.Panel>
+              <Tab.Panel>Content 2</Tab.Panel>
+              <Tab.Panel>Content 3</Tab.Panel>
+            </Tab.Panels>
+          </Tab.Group>
+        </div>
       </section>
     </div>
   );
