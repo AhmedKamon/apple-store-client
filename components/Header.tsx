@@ -11,7 +11,7 @@ function Header() {
         <div className="flex items-center justify-center md:w-1/5 ">
       <Link href="/">
         <div className=" relative w-5 h-10 cursor-pointer opacity-75 transition hover:opacity-100 ">
-          <Image src="https://rb.gy/vsvv2o" layout="fill" objectFit="contain" />
+          <Image src="https://rb.gy/vsvv2o" layout="fill" objectFit="contain" alt="logo" />
         </div>
       </Link>
         </div>
@@ -32,6 +32,7 @@ function Header() {
         {
           session ? (
               <Image
+              alt="icon"
               className="rounded-full"
               src={'https://yt3.ggpht.com/ytc/AMLnZu_3CcNeRc4RziS1ai21e44w3JtWzxTMtEBwE-XJqA=s900-c-k-c0x00ffffff-no-rj'}
               width={30}
