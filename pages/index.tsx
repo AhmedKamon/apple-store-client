@@ -11,7 +11,6 @@ interface Props {
 }
 
 const Home = ({ categories }: Props) => {
-  console.log(categories);
   return (
     <div>
       <Head>
@@ -32,7 +31,7 @@ const Home = ({ categories }: Props) => {
 
           <Tab.Group>
             <Tab.List className="flex justify-center">
-              {categories.map((categorie) => (
+              { categories && categories.map((categorie) => (
                 <Tab
                 key={categorie._id}
                 id={categorie._id}
