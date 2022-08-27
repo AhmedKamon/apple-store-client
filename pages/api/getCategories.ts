@@ -2,6 +2,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import {groq} from 'next-sanity'
 import {sanityClient} from '../../sanity'
+import { Category } from '../../typings'
 
 // query
 const query = groq`*[_type == 'category']{

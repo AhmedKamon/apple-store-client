@@ -6,14 +6,12 @@ import Landing from "../components/Landing";
 import { Category } from "../typings";
 import { fetchCategories } from "../utils/fetchCategories";
 
-
 interface Props {
-  categories : Category[]
+  categories: Category[];
 }
 
-
-const Home = ({categories}:Props) => {
-  console.log(categories,'index page')
+const Home = ({ categories }: Props) => {
+  console.log(categories);
   return (
     <div>
       <Head>
@@ -34,14 +32,19 @@ const Home = ({categories}:Props) => {
 
           <Tab.Group>
             <Tab.List className="flex justify-center">
-              <Tab>Tab 1</Tab>
-              <Tab>Tab 2</Tab>
-              <Tab>Tab 3</Tab>
+              {categories.map((categorie) => (
+                <Tab
+                key={categorie._id}
+                id={categorie._id}
+                className={({selected}) =>`whitespace-nowrap text-sm rounded-t-lg py-3 px-5 font-light outline-none md:py-4 md:px-4 md:text-base  ${ selected ? 'bg-[#35383c] text-white borderGradient' : 'border-[#35383c] border-b-2 text-[#747474] '  }`}
+                >{categorie.title}</Tab>
+              ))}
             </Tab.List>
             <Tab.Panels className="mx-auto max-w-fit pt-10 pb-24 sm:px-4 ">
               <Tab.Panel>Content 1</Tab.Panel>
               <Tab.Panel>Content 2</Tab.Panel>
               <Tab.Panel>Content 3</Tab.Panel>
+              <Tab.Panel>Mac</Tab.Panel>
             </Tab.Panels>
           </Tab.Group>
         </div>
@@ -54,10 +57,10 @@ export default Home;
 
 // backend get data from server
 export const getServerSideProps: GetServerSideProps<Props> = async () => {
-  const categories = await fetchCategories() 
+  const categories = await fetchCategories();
   return {
     props: {
-      categories : categories || null,
+      categories: categories || null,
     },
   };
 };

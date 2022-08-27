@@ -19,4 +19,7 @@
   .link{
     @apply relative cursor-pointer text-lg font-medium before:absolute before:inset-x-0 before:-bottom-1.5 before:h-0.5 before:origin-left before:scale-x-0 before:transition-all before:bg-black hover:before:scale-x-100 before:duration-200
   }
+  .borderGradient{
+    @apply text-center pb-[5px] bg-gradient-to-r from-[#ec4899] to-[#8b5cf6] bg-no-repeat bg-bottom bg-[length:100%_2px]
+  }
 }
