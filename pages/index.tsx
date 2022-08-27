@@ -12,7 +12,7 @@ interface Props {
 }
 
 
-const Home: NextPage = ({categories}) => {
+const Home = ({categories}:Props) => {
   console.log(categories,'index page')
   return (
     <div>
