@@ -3,7 +3,17 @@ import type { GetServerSideProps, NextPage } from "next";
 import Head from "next/head";
 import Header from "../components/Header";
 import Landing from "../components/Landing";
-const Home: NextPage = () => {
+import { Category } from "../typings";
+import { fetchCategories } from "../utils/fetchCategories";
+
+
+interface Props {
+  categories : Category[]
+}
+
+
+const Home: NextPage = ({categories}) => {
+  console.log(categories,'index page')
   return (
     <div>
       <Head>
@@ -43,9 +53,11 @@ const Home: NextPage = () => {
 export default Home;
 
 // backend get data from server
-export const getServerSideProps: GetServerSideProps = async () => {
-  // const categories = await fetchCategories()
+export const getServerSideProps: GetServerSideProps<Props> = async () => {
+  const categories = await fetchCategories() 
   return {
-    props: {},
+    props: {
+      categories : categories || null,
+    },
   };
 };
