@@ -31,13 +31,13 @@ const Home = ({ categories }: Props) => {
 
           <Tab.Group>
             <Tab.List className="flex justify-center">
-              { categories && categories.map((categorie) => (
+              { categories ? categories.map((categorie) => (
                 <Tab
                 key={categorie._id}
                 id={categorie._id}
                 className={({selected}) =>`whitespace-nowrap text-sm rounded-t-lg py-3 px-5 font-light outline-none md:py-4 md:px-4 md:text-base  ${ selected ? 'bg-[#35383c] text-white borderGradient' : 'border-[#35383c] border-b-2 text-[#747474] '  }`}
                 >{categorie.title}</Tab>
-              ))}
+              )): []}
             </Tab.List>
             <Tab.Panels className="mx-auto max-w-fit pt-10 pb-24 sm:px-4 ">
               <Tab.Panel>Content 1</Tab.Panel>
