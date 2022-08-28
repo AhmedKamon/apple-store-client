@@ -3,14 +3,17 @@ import type { GetServerSideProps, NextPage } from "next";
 import Head from "next/head";
 import Header from "../components/Header";
 import Landing from "../components/Landing";
-import { Category } from "../typings";
+import { Category, Product } from "../typings";
 import { fetchCategories } from "../utils/fetchCategories";
+import { fetchproducts } from "../utils/fetchProducts";
 
 interface Props {
   categories: Category[];
+  products: Product[]
 }
 
-const Home = ({ categories }: Props) => {
+const Home = ({ categories,products }: Props) => {
+  console.log(products,'all products')
   return (
     <div>
       <Head>
@@ -57,9 +60,11 @@ export default Home;
 // backend get data from server
 export const getServerSideProps: GetServerSideProps<Props> = async () => {
   const categories = await fetchCategories();
+  const products = await fetchproducts();
   return {
     props: {
       categories: categories || null,
+      products: products || null,
     },
   };
 };

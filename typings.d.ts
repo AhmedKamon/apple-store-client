@@ -30,3 +30,11 @@ export interface Category {
   };
   image: Image[];
 }
+
+interface Image {
+  _key: string;
+  _type: "image";
+  asset: {
+    url: string
+  }
+}
