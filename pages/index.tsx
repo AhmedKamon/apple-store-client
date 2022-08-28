@@ -3,6 +3,7 @@ import type { GetServerSideProps, NextPage } from "next";
 import Head from "next/head";
 import Header from "../components/Header";
 import Landing from "../components/Landing";
+import SingleProduct from "../components/SingleProduct";
 import { Category, Product } from "../typings";
 import { fetchCategories } from "../utils/fetchCategories";
 import { fetchproducts } from "../utils/fetchProducts";
@@ -13,7 +14,14 @@ interface Props {
 }
 
 const Home = ({ categories,products }: Props) => {
-  console.log(products,'all products')
+  console.log(categories)
+ 
+  const showProducts = (category: number) =>{
+    // filter products by categories
+    return products.filter((product) => product.category._ref === categories[category]._id ).map((product)=> <SingleProduct product={product} key={product._id} />)
+  }
+   
+
   return (
     <div>
       <Head>
@@ -43,10 +51,11 @@ const Home = ({ categories,products }: Props) => {
               )): []}
             </Tab.List>
             <Tab.Panels className="mx-auto max-w-fit pt-10 pb-24 sm:px-4 ">
-              <Tab.Panel>Content 1</Tab.Panel>
-              <Tab.Panel>Content 2</Tab.Panel>
-              <Tab.Panel>Content 3</Tab.Panel>
-              <Tab.Panel>Mac</Tab.Panel>
+              <Tab.Panel>{showProducts(0)}</Tab.Panel>
+              <Tab.Panel>{showProducts(1)}</Tab.Panel>
+              <Tab.Panel>{showProducts(2)}</Tab.Panel>
+              <Tab.Panel>{showProducts(3)}</Tab.Panel>
+              
             </Tab.Panels>
           </Tab.Group>
         </div>
