@@ -29,6 +29,5 @@ export default async function handler(
     res.status(200).json({categories});
   } catch (err) {
     console.log('first')
-    res.status(500).json(err)
   }
 }
