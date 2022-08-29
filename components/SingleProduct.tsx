@@ -1,17 +1,34 @@
 import Image from "next/image";
 import { Product } from "../typings";
-import {urlFor} from '../sanity'
+import { urlFor } from "../sanity";
+import { ShoppingCartIcon } from "@heroicons/react/outline";
 
 interface Props {
   product: Product;
 }
 
 function SingleProduct({ product }: Props) {
-  return <div>
-    <div>
-      {/* <Image src={urlFor(product.image[0]).url()} alt={product.title} /> */}
+  return (
+    <div className="flex flex-col space-y-3  h-fit w-[320px] select-none bg-[#35383c] rounded-lg p-8 md:h-[500px] md:w-[400px] md:p-8 ">
+      <div className="relative h-64 w-full md:h-72 ">
+        <Image
+          src={urlFor(product.image[0]).url()}
+          alt={product.title}
+          layout="fill"
+          objectFit="contain"
+        />
+      </div>
+      <div className="flex flex-1 items-center justify-between space-x-3" >
+        <div className="space-y-2 text-white text-xl md:text-2xl " >
+          <p>{product.title}</p>
+          <p>{product.price}</p>
+        </div>
+        <div className=" w-16 h-16 bg-gradient-to-r from-pink-500 to-violet-500 flex flex-shrink-0 items-center justify-center rounded-full md:h-[70px] md:w-[70px] " >
+          <ShoppingCartIcon className="text-white h-8 w-8 cursor-pointer " />
+        </div>
+      </div>
     </div>
-  </div>;
+  );
 }
 
 export default SingleProduct;
