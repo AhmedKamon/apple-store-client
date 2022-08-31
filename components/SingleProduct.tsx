@@ -8,6 +8,7 @@ interface Props {
 }
 
 function SingleProduct({ product }: Props) {
+  const addItemToBasket = () => {};
   return (
     <div className="flex flex-col space-y-3  h-fit w-[320px] select-none bg-[#35383c] rounded-lg p-8 md:h-[400px] md:w-[300px] md:p-8 ">
       <div className="relative h-64 w-full md:h-72 ">
@@ -18,12 +19,15 @@ function SingleProduct({ product }: Props) {
           objectFit="contain"
         />
       </div>
-      <div className="flex flex-1 items-center justify-between space-x-3" >
-        <div className="space-y-2 text-white text-xl md:text-2xl " >
+      <div className="flex flex-1 items-center justify-between space-x-3">
+        <div className="space-y-2 text-white text-xl md:text-2xl ">
           <p>{product.title}</p>
           <p>{product.price}</p>
         </div>
-        <div className=" w-16 h-16 bg-gradient-to-r from-pink-500 to-violet-500 flex flex-shrink-0 items-center justify-center rounded-full md:h-[70px] md:w-[70px] " >
+        <div
+          className=" w-16 h-16 bg-gradient-to-r from-pink-500 to-violet-500 flex flex-shrink-0 items-center justify-center rounded-full md:h-[70px] md:w-[70px]"
+          onClick={addItemToBasket}
+        >
           <ShoppingCartIcon className="text-white h-8 w-8 cursor-pointer " />
         </div>
       </div>
