@@ -1,6 +1,7 @@
 import { Tab } from "@headlessui/react";
 import type { GetServerSideProps, NextPage } from "next";
 import Head from "next/head";
+import Basket from "../components/Basket";
 import Header from "../components/Header";
 import Landing from "../components/Landing";
 import SingleProduct from "../components/SingleProduct";
@@ -30,6 +31,7 @@ const Home = ({ categories,products }: Props) => {
       </Head>
 
       <Header />
+      <Basket/>
 
       <main className="relative h-[200vh] bg-[#e7ecee] ">
         <Landing />

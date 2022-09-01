@@ -13,10 +13,10 @@ interface Props {
 function SingleProduct({ product }: Props) {
   const dispatch = useDispatch();
   const addItemToBasket = () => {
-    dispatch(addToBasket(product))
+    dispatch(addToBasket(product));
     toast.success(`${product.title} added to basket `, {
-      position: 'bottom-center'
-    })
+      position: "bottom-center",
+    });
   };
   return (
     <div className="flex flex-col space-y-3  h-fit w-[320px] select-none bg-[#35383c] rounded-lg p-8 md:h-[400px] md:w-[300px] md:p-8 ">
