@@ -41,7 +41,9 @@ function Header() {
       </div>
       <div className=" flex items-center justify-center gap-x-4 md:w-1/5 ">
         <SearchIcon className="headerIcon" />
-        <Link href="/checkout">
+        { items.length > 0 &&
+
+          <Link href="/checkout">
           <div className="relative">
             <span className="absolute -top-1 -right-1 w-4 h-4 bg-gradient-to-r from-pink-500 to-violet-500 rounded-full flex justify-center items-center z-30 text-[10px] text-white ">
               {items.length}
@@ -49,6 +51,7 @@ function Header() {
             <ShoppingBagIcon className="headerIcon" />
           </div>
         </Link>
+        }
         {session ? (
           <Image
             alt="icon"
