@@ -7,7 +7,7 @@ module.exports = {
   theme: {
     extend: {
        fontFamily:{
-        body:['Poppins', 'sans-serif']
+        body:['Comfortaa', 'cursive','Poppins', 'sans-serif']
        }
     },
   },

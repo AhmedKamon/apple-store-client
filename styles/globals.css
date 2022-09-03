@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -10,6 +11,15 @@
 }
 
 @layer components {
+  .powered{
+    /* @apply block bg-gradient-to-r from-pink-500 to-violet-500 bg-clip-text text-transparent */
+    
+   font-size:6rem;
+   color: #eee;
+   background: linear-gradient(-45deg, #eeaa52, #e73c6f, #2394d5, #2af3b7);
+   -webkit-background-clip: text;
+   -webkit-text-stroke: 4px transparent;
+  }
   .headerLink {
     @apply cursor-pointer opacity-75 hover:opacity-100 transition;
   }
