@@ -20,7 +20,7 @@ function CheckoutProducts({ items, id }: Props) {
     })
   };
   return (
-    <div className="flex flex-col gap-x-4 border-b border-gray-300 pb-5 lg:flex-row lg:items-center">
+    <div className="flex flex-col gap-x-4 border-b border-gray-300 pb-5 lg:flex-row lg:items-center  ">
     <div className="relative h-44 w-44">
       <Image
         src={urlFor(items[0].image[0]).url()}

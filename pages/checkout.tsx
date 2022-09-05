@@ -23,13 +23,13 @@ function Checkout() {
   }, [items]);
   console.log(groupedItemsInBasket, "group");
   return (
-    <div>
+    <div className="overflow-hidden bg-gradient-to-b from-[#e7ecee] to-gray-400/40">
       <Head>
         <title>Cart</title>
       </Head>
       <Header />
-      <main>
-        <div>
+      <main className="mx-auto max-w-5xl pb-24 ">
+        <div className="px-5 ">
           <h1 className="my-4 text-3xl font-semibold lg:text-4xl ">
             {items.length > 0 ? "Review your bag" : "Opps your bag is empty"}
           </h1>
@@ -42,7 +42,7 @@ function Checkout() {
           )}
         </div>
         {items.length > 0 && (
-          <div>
+          <div className=" px-5 md:px-8 backdrop-blur-sm ">
             {Object.entries(groupedItemsInBasket).map(([key, items]) => (
               <CheckoutProducts key={key} id={key} items={items} />
             ))}
