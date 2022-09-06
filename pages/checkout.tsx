@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Header from "../components/Header";
 import { useSelector } from "react-redux";
-import { selectBasketItems } from "../redux/basketSlice";
+import { selectBasketItems, selectBasketTotal } from "../redux/basketSlice";
 import Button from "../components/Button";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
@@ -11,6 +11,7 @@ import CheckoutProducts from "../components/CheckoutProducts";
 function Checkout() {
   const items = useSelector(selectBasketItems);
   const router = useRouter();
+  const basketTotal = useSelector(selectBasketTotal)
   const [groupedItemsInBasket, setGroupedItemsInBasket] = useState(
     {} as { [key: string]: Product[] }
   );
@@ -42,10 +43,30 @@ function Checkout() {
           )}
         </div>
         {items.length > 0 && (
-          <div className=" px-5 md:px-8 backdrop-blur-sm ">
+          <div className="">
             {Object.entries(groupedItemsInBasket).map(([key, items]) => (
               <CheckoutProducts key={key} id={key} items={items} />
             ))}
+            <div className="mt-6 my-12 ml-auto max-w-3xl" >
+              <div className="divide-y divide-gray-300" >
+                <div className="pb-4" >
+                  <div className="flex justify-between" >
+                    <p>Subtotal</p>
+                    <p>{basketTotal}</p>
+                  </div>
+                  <div className="flex justify-between">
+                    <p>shiping</p>
+                    <p>free</p>
+                  </div>
+                
+                </div>
+                <div className="flex justify-between pt-4 font-semibold text-xl" >
+                  <h4>total</h4>
+                  <h4>{basketTotal}</h4>
+                </div>
+              </div>
+              <div></div>
+            </div>
           </div>
         )}
       </main>
