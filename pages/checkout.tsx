@@ -65,7 +65,10 @@ function Checkout() {
                   <h4>{basketTotal}</h4>
                 </div>
               </div>
-              <div></div>
+              <div className=" mt-5 flex flex-1 flex-col items-center space-y-5 rounded-xl border border-gray-500/30 p-5 " >
+                <h4 className="text-xl font-semibold" >Feel free to checkout</h4>
+                <Button width="w-full" title={`${basketTotal}$ Checkout Now`} />
+              </div>
             </div>
           </div>
         )}
