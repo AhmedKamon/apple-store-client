@@ -19,6 +19,7 @@ function Button({ title, onClick, width, loading, padding, noIcon }: Props) {
       <span className="absolute top-0 left-0 -mt-1 -ml-12 h-8 w-20 -translate-x-1 -rotate-45 transform bg-white opacity-10 transition-all duration-300 ease-out group-hover:translate-x-0"></span>
       <span className="relative z-20 flex items-center font-semibold ">
         {noIcon && (
+          
           <svg
             className="relative mr-2 h-5 w-5 flex-shrink-0 text-white"
             fill="none"
