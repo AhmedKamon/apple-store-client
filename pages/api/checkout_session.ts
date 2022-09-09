@@ -25,9 +25,30 @@ export default async function handler(
       quantity: 1,
     }));
     try {
-      
+      // create checkout sessoin
+      const params: Stripe.Checkout.SessionCreateParams = {
+        payment_method_types:['card'],
+        shipping_address_collection:{
+          allowed_countries: ['US', 'CA','GB']
+        },
+        line_items: transformedItems,
+        payment_intent_data:{},
+        mode:'payment',
+        success_url:`${req.headers.origin}/success?session_id={CHECKOUT_SESSION_ID}`,
+        cancel_url:`${req.headers.origin}/checkout`,
+        metadata:{
+          images: JSON.stringify(
+            items.map((item)=>item.image[0].asset.url)
+          )
+        }
+      }
+      const checkoutSession: Stripe.Checkout.Session = await stripe.checkout.sessions.create(params)
+      res.status(200).json(checkoutSession)
     } catch (error) {
-      
+      res.status(500).json('internel server error')
     }
+  }else{
+    res.setHeader('Allow', 'POST');
+    res.status(405).end('Method Not Allowed')
   }
 }
