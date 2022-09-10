@@ -10,6 +10,7 @@ import CheckoutProducts from "../components/CheckoutProducts";
 import { Stripe } from "stripe";
 import { fetchPostJSON } from "../utils/api-helpers";
 import getStripe from "../utils/get-stripe";
+// redeploy
 
 function Checkout() {
   const items = useSelector(selectBasketItems);
