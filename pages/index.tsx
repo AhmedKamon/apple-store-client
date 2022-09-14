@@ -26,7 +26,7 @@ const Home = ({ categories,products }: Props) => {
   return (
     <div>
       <Head>
-        <title>Tech Store</title>
+        <title>Flowers</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

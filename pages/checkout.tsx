@@ -51,7 +51,7 @@ function Checkout() {
   return (
     <div className="overflow-hidden bg-gradient-to-b from-[#e7ecee] to-gray-400/40">
       <Head>
-        <title>Cart</title>
+        <title>Flowers | Cart</title>
       </Head>
       <Header />
       <main className="mx-auto max-w-5xl pb-24 ">
